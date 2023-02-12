@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/12 21:36:31 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/12 22:53:36 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME_BONUS	=	checker
 SRC_DIR	=	./srcs
 
 SRCS	=\
+	atoi_strict.c \
 	main.c \
 
 SRCS_BONUS	=\
