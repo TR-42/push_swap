@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/12 23:36:36 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/13 09:46:42 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS	=\
 	atoi_strict.c \
 	main.c \
 	stack_init.c \
+	stack_print.c \
 
 SRCS_BONUS	=\
 	main_bonus.c \

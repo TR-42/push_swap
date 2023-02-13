@@ -46,6 +46,8 @@ typedef struct s_stacks
 t_stacks	init_stack(int *values, size_t count);
 bool		init_stack_from_str(const char *str, t_stacks *stacks);
 
+void		stack_print(const t_stack_elem *elem);
+
 void		dispose_stack(t_stacks *stacks);
 void		dispose_stack_elem(t_stack_elem *elem);
 
