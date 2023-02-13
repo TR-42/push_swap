@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/12 23:37:00 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/13 09:46:12 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,20 @@
 // - size_t
 # include <stddef.h>
 
+# define STR_SWAP_A ("sa\n")
+# define STR_SWAP_B ("sb\n")
+# define STR_SWAP_A_B ("ss\n")
+
+# define STR_PUSH_A ("pa\n")
+# define STR_PUSH_B ("pb\n")
+
+# define STR_ROTATE_A ("ra\n")
+# define STR_ROTATE_B ("rb\n")
+# define STR_ROTATE_A_B ("rr\n")
+
+# define STR_REVERSE_ROTATE_A ("rra\n")
+# define STR_REVERSE_ROTATE_B ("rrb\n")
+# define STR_REVERSE_ROTATE_A_B ("rrr\n")
 
 typedef struct s_stack_elem
 {
