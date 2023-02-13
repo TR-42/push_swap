@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:32:52 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/12 23:38:40 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/13 09:49:03 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #include "../libft/ft_is/ft_is.h"
 #include "../libft/ft_vect/ft_vect.h"
 
-#include <stdio.h>
+// - exit
+// - EXIT_FAILURE
+#include <stdlib.h>
 
 static bool	push_back_when_valid_num(t_vect *vect, int value)
 {
@@ -53,28 +55,35 @@ bool	init_stack_from_str(const char *str, t_stacks *stacks)
 			return (false);
 		}
 	}
-	value = 0;
-	while (value < (int)(vect.len))
-	{
-		printf("[%2d]:%10d\n", value, *(int *)vect_at(&vect, value));
-		value++;
-	}
-	// *stacks = init_stack((int *)(vect.p), vect.len);
+	*stacks = init_stack((int *)(vect.p), vect.len);
+	stack_print(stacks->a);
 	vect_dispose(&vect);
 	return (true);
 }
 
 t_stacks	init_stack(int *values, size_t count)
 {
-	t_stacks	stack;
+	t_stacks		stack;
+	t_stack_elem	*elem;
 
-	(void)values;
-	(void)count;
-	stack.a = NULL;
 	stack.a_bottom = NULL;
 	stack.a_len = 0;
 	stack.b = NULL;
 	stack.b_bottom = NULL;
 	stack.b_len = 0;
+	while (stack.a_len < count)
+	{
+		elem = malloc(sizeof(t_stack_elem));
+		if (elem == NULL)
+			exit(EXIT_FAILURE);
+		if (stack.a_bottom == NULL)
+			stack.a = elem;
+		else
+			stack.a_bottom->to_bottom = elem;
+		elem->to_top = stack.a_bottom;
+		elem->to_bottom = NULL;
+		elem->value = values[(stack.a_len)++];
+		stack.a_bottom = elem;
+	}
 	return (stack);
 }
