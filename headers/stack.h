@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/13 09:46:12 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/14 23:46:47 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void		swap_a(t_stacks *stacks);
 void		swap_b(t_stacks *stacks);
 void		swap_a_b(t_stacks *stacks);
 
-void		push_a(t_stacks *stacks, V_TYPE value);
-void		push_b(t_stacks *stacks, V_TYPE value);
+void		push_a(t_stacks *stacks);
+void		push_b(t_stacks *stacks);
 
 void		rotate_a(t_stacks *stacks);
 void		rotate_b(t_stacks *stacks);
