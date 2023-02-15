@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 23:28:58 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/15 23:57:26 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/16 00:04:23 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ static bool	_pop_push(t_stack_top *src, t_stack_top *dst)
 		(*src)->to_top = target->to_top;
 	current_dst = *dst;
 	*dst = target;
+	target->to_bottom = current_dst;
 	if (current_dst != NULL)
 	{
 		target->to_top = current_dst->to_top;
-		target->to_bottom = current_dst;
 		current_dst->to_top = target;
 	}
 	return (true);
