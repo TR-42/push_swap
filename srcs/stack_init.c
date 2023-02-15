@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:32:52 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/13 09:49:03 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/15 23:25:02 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ bool	init_stack_from_str(const char *str, t_stacks *stacks)
 		}
 	}
 	*stacks = init_stack((int *)(vect.p), vect.len);
-	stack_print(stacks->a);
 	vect_dispose(&vect);
 	return (true);
 }
