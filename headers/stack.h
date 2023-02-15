@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/14 23:46:47 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/15 23:05:51 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,19 @@ void		stack_print(const t_stack_elem *elem);
 void		dispose_stack(t_stacks *stacks);
 void		dispose_stack_elem(t_stack_elem *elem);
 
-void		swap_a(t_stacks *stacks);
-void		swap_b(t_stacks *stacks);
-void		swap_a_b(t_stacks *stacks);
+void		swap_a(t_stacks *stacks, bool do_print);
+void		swap_b(t_stacks *stacks, bool do_print);
+void		swap_a_b(t_stacks *stacks, bool do_print);
 
-void		push_a(t_stacks *stacks);
-void		push_b(t_stacks *stacks);
+void		push_a(t_stacks *stacks, bool do_print);
+void		push_b(t_stacks *stacks, bool do_print);
 
-void		rotate_a(t_stacks *stacks);
-void		rotate_b(t_stacks *stacks);
-void		rotate_a_b(t_stacks *stacks);
+void		rotate_a(t_stacks *stacks, bool do_print);
+void		rotate_b(t_stacks *stacks, bool do_print);
+void		rotate_a_b(t_stacks *stacks, bool do_print);
 
-void		reverse_rotate_a(t_stacks *stacks);
-void		reverse_rotate_b(t_stacks *stacks);
-void		reverse_rotate_a_b(t_stacks *stacks);
+void		reverse_rotate_a(t_stacks *stacks, bool do_print);
+void		reverse_rotate_b(t_stacks *stacks, bool do_print);
+void		reverse_rotate_a_b(t_stacks *stacks, bool do_print);
 
 #endif
