@@ -57,27 +57,27 @@ typedef struct s_stacks
 	size_t		b_len;
 }	t_stacks;
 
-t_stacks	init_stack(int *values, size_t count);
-bool		init_stack_from_str(const char *str, t_stacks *stacks);
+t_stacks			init_stack(int *values, size_t count);
+bool				init_stack_from_str(const char *str, t_stacks *stacks);
 
-void		stack_print(const t_stack_elem *elem);
+void				stack_print(const t_stack_elem *elem);
 
-void		dispose_stack(t_stacks *stacks);
-void		dispose_stack_elem(t_stack_elem *elem);
+void				dispose_stack(t_stacks *stacks);
+void				dispose_stack_elem(t_stack_elem *elem);
 
-void		swap_a(t_stacks *stacks, bool do_print);
-void		swap_b(t_stacks *stacks, bool do_print);
-void		swap_a_b(t_stacks *stacks, bool do_print);
+void				swap_a(t_stacks *stacks, bool do_print);
+void				swap_b(t_stacks *stacks, bool do_print);
+void				swap_a_b(t_stacks *stacks, bool do_print);
 
-void		push_a(t_stacks *stacks, bool do_print);
-void		push_b(t_stacks *stacks, bool do_print);
+void				push_a(t_stacks *stacks, bool do_print);
+void				push_b(t_stacks *stacks, bool do_print);
 
-void		rotate_a(t_stacks *stacks, bool do_print);
-void		rotate_b(t_stacks *stacks, bool do_print);
-void		rotate_a_b(t_stacks *stacks, bool do_print);
+void				rotate_a(t_stacks *stacks, bool do_print);
+void				rotate_b(t_stacks *stacks, bool do_print);
+void				rotate_a_b(t_stacks *stacks, bool do_print);
 
-void		reverse_rotate_a(t_stacks *stacks, bool do_print);
-void		reverse_rotate_b(t_stacks *stacks, bool do_print);
-void		reverse_rotate_a_b(t_stacks *stacks, bool do_print);
+void				reverse_rotate_a(t_stacks *stacks, bool do_print);
+void				reverse_rotate_b(t_stacks *stacks, bool do_print);
+void				reverse_rotate_a_b(t_stacks *stacks, bool do_print);
 
 #endif
