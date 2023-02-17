@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 06:58:47 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 07:01:46 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,6 @@ static bool	parse_arg(int argc, char *const *argv, t_stacks *stacks)
 		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 		return (false);
 	}
-	stack_print_all(stacks);
-	rotate_a(stacks, true);
-	stack_print_all(stacks);
-	rotate_a(stacks, true);
-	stack_print_all(stacks);
-	push_b(stacks, true);
-	push_b(stacks, true);
-	push_b(stacks, true);
-	stack_print_all(stacks);
-	reverse_rotate_b(stacks, true);
-	stack_print_all(stacks);
-	rotate_a_b(stacks, true);
-	stack_print_all(stacks);
 	return (true);
 }
 
