@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 06:50:42 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 06:58:47 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,15 @@ int	main(int argc, char *const *argv)
 
 	if (!parse_arg(argc, argv, &stacks))
 		return (EXIT_FAILURE);
+	dispose_stack(&stacks);
 	return (EXIT_SUCCESS);
 }
+
+#if DEBUG
+
+__attribute__((destructor))
+static void	destructor(void) {
+	system("leaks -q push_swap");
+}
+
+#endif

@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/18 06:57:21 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/18 06:59:18 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LIBFT_DIR	=	./libft
 LIBFT	=	$(LIBFT_DIR)/libft.a
 LIBFT_MAKE	=	make -C $(LIBFT_DIR)
 
-CFLAGS	=	-Wall -Wextra -Werror -MMD
+override CFLAGS	+=	-Wall -Wextra -Werror -MMD
 INCLUDES	=	-I $(LIBFT_DIR) -I ./headers
 
 CC		=	cc
@@ -60,13 +60,21 @@ $(OBJ_DIR)/%.o:	$(SRC_DIR)/%.c
 $(LIBFT):
 	$(LIBFT_MAKE)
 
+debug: clean_local
+	make CFLAGS=-DDEBUG
+
+bdebug: clean_local
+	make bonus CFLAGS=-DDEBUG
+
 bonus:
 	make $(NAME_BONUS)
 
-clean:
-	$(LIBFT_MAKE) clean
+clean_local:
 	rm -f $(OBJS) $(OBJS_BONUS) $(DEPS) $(DEPS_BONUS)
 	rm -d $(OBJ_DIR) 2>/dev/null || exit 0
+
+clean: clean_local
+	$(LIBFT_MAKE) clean
 
 fclean:	clean
 	$(LIBFT_MAKE) fclean
@@ -76,4 +84,4 @@ re:	fclean all
 
 -include $(DEPS) $(DEPS_BONUS)
 
-.PHONY:	clean bonus
+.PHONY:	clean_local bonus debug bdebug
