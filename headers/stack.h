@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/15 23:53:40 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 06:25:54 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,50 +36,36 @@
 # define STR_REVERSE_ROTATE_B ("rrb\n")
 # define STR_REVERSE_ROTATE_A_B ("rrr\n")
 
-typedef struct s_stack_elem
-{
-	struct s_stack_elem	*to_top;
-	struct s_stack_elem	*to_bottom;
-	V_TYPE				value;
-}	t_stack_elem;
-
-typedef t_stack_elem *	t_stack_top;
-typedef t_stack_elem *	t_stack_btm;
-
 typedef struct s_stacks
 {
-	t_stack_top	a;
-	t_stack_btm	a_bottom;
-	size_t		a_len;
+	V_TYPE	*a;
+	size_t	a_len;
 
-	t_stack_top	b;
-	t_stack_btm	b_bottom;
-	size_t		b_len;
+	V_TYPE	*b;
+	size_t	b_len;
 }	t_stacks;
 
-t_stacks			init_stack(int *values, size_t count);
-bool				init_stack_from_str(const char *str, t_stacks *stacks);
+t_stacks	init_stack(V_TYPE *values, size_t count);
+bool		init_stack_from_str(const char *str, t_stacks *stacks);
 
-const t_stack_elem	*stack_print_one(const t_stack_elem *elem);
-void				stack_print(const t_stack_elem *elem);
-void				stack_print_all(const t_stacks *stacks);
+void		stack_print(V_TYPE *arr, size_t count);
+void		stack_print_all(const t_stacks *stacks);
 
-void				dispose_stack(t_stacks *stacks);
-void				dispose_stack_elem(t_stack_elem *elem);
+void		dispose_stack(t_stacks *stacks);
 
-void				swap_a(t_stacks *stacks, bool do_print);
-void				swap_b(t_stacks *stacks, bool do_print);
-void				swap_a_b(t_stacks *stacks, bool do_print);
+void		swap_a(t_stacks *stacks, bool do_print);
+void		swap_b(t_stacks *stacks, bool do_print);
+void		swap_a_b(t_stacks *stacks, bool do_print);
 
-void				push_a(t_stacks *stacks, bool do_print);
-void				push_b(t_stacks *stacks, bool do_print);
+void		push_a(t_stacks *stacks, bool do_print);
+void		push_b(t_stacks *stacks, bool do_print);
 
-void				rotate_a(t_stacks *stacks, bool do_print);
-void				rotate_b(t_stacks *stacks, bool do_print);
-void				rotate_a_b(t_stacks *stacks, bool do_print);
+void		rotate_a(t_stacks *stacks, bool do_print);
+void		rotate_b(t_stacks *stacks, bool do_print);
+void		rotate_a_b(t_stacks *stacks, bool do_print);
 
-void				reverse_rotate_a(t_stacks *stacks, bool do_print);
-void				reverse_rotate_b(t_stacks *stacks, bool do_print);
-void				reverse_rotate_a_b(t_stacks *stacks, bool do_print);
+void		reverse_rotate_a(t_stacks *stacks, bool do_print);
+void		reverse_rotate_b(t_stacks *stacks, bool do_print);
+void		reverse_rotate_a_b(t_stacks *stacks, bool do_print);
 
 #endif

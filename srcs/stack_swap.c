@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:06:38 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/15 23:22:50 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 06:32:05 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,33 @@
 // - STDOUT_FILENO
 #include <unistd.h>
 
-static void	_swap(t_stack_top	*current_top_var)
+static void	_swap(V_TYPE *current_top, size_t len)
 {
-	t_stack_elem	*top_after_exec;
-	t_stack_elem	*current_top;
+	V_TYPE	tmp;
 
-	if (current_top_var == NULL || (*current_top_var) == NULL
-		|| (*current_top_var)->to_bottom == NULL)
+	if (current_top == NULL || len < 2)
 		return ;
-	current_top = *current_top_var;
-	top_after_exec = current_top->to_bottom;
-	if (current_top->to_top != NULL)
-		current_top->to_top->to_bottom = top_after_exec;
-	top_after_exec->to_top = current_top->to_top;
-	if (top_after_exec->to_bottom != NULL)
-		top_after_exec->to_bottom->to_top = current_top;
-	current_top->to_bottom = top_after_exec->to_bottom;
-	current_top->to_top = top_after_exec;
-	top_after_exec->to_bottom = current_top;
-	*current_top_var = top_after_exec;
+	tmp = current_top[0];
+	current_top[0] = current_top[1];
+	current_top[1] = tmp;
 }
 
 void	swap_a(t_stacks *stacks, bool do_print)
 {
 	if (do_print)
 		ft_putstr_fd(STR_SWAP_A, STDOUT_FILENO);
-	if (stacks == NULL || stacks->a_len < 2)
+	if (stacks == NULL)
 		return ;
-	_swap(&(stacks->a));
+	_swap(stacks->a, stacks->a_len);
 }
 
 void	swap_b(t_stacks *stacks, bool do_print)
 {
 	if (do_print)
 		ft_putstr_fd(STR_SWAP_B, STDOUT_FILENO);
-	if (stacks == NULL || stacks->b_len < 2)
+	if (stacks == NULL)
 		return ;
-	_swap(&(stacks->b));
+	_swap(stacks->b, stacks->b_len);
 }
 
 void	swap_a_b(t_stacks *stacks, bool do_print)
