@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/18 06:59:18 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/18 07:00:32 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ LIBFT_DIR	=	./libft
 LIBFT	=	$(LIBFT_DIR)/libft.a
 LIBFT_MAKE	=	make -C $(LIBFT_DIR)
 
-override CFLAGS	+=	-Wall -Wextra -Werror -MMD
+override CFLAGS	+=	-Wall -Wextra -Werror -MMD -MP
 INCLUDES	=	-I $(LIBFT_DIR) -I ./headers
 
 CC		=	cc
