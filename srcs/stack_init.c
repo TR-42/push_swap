@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:32:52 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 06:42:34 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 07:03:02 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ bool	init_stack_from_str(const char *str, t_stacks *stacks)
 	t_vect		vect;
 	int			value;
 
-	(void)stacks;
 	if (!(ft_isspace(*str) || ft_isdigit(*str) || *str == '-' || *str == '+'))
 		return (false);
 	vect = vect_init(16, sizeof(int));
