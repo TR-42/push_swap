@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 02:57:18 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 04:14:34 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_DIR	=	./srcs
 
 SRCS	=\
 	atoi_strict.c \
+	compress_coordinate.c \
 	ft_qsort.c \
 	ft_swap.c \
 	main.c \
