@@ -13,6 +13,7 @@
 #include "../headers/compress_coordinate.h"
 #include "../headers/ft_sort.h"
 #include "../headers/parse_arg.h"
+#include "../headers/stack_sort.h"
 #include "../headers/stack.h"
 
 #include "../libft/ft_put/ft_put.h"
@@ -34,6 +35,10 @@ int	main(int argc, const char *argv[])
 	{
 		print_error();
 		return (EXIT_FAILURE);
+	}
+	if (!stack_is_sorted(&stacks))
+	{
+		stack_sort_small(&stacks);
 	}
 	dispose_stack(&stacks);
 	return (EXIT_SUCCESS);
