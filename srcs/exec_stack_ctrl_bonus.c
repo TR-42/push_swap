@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 02:20:37 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 02:35:16 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 02:51:02 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static bool	_exec_stack_ctrl(const char *input, t_stacks *stacks,
 bool	exec_stack_ctrl(const char *input, t_stacks *stacks)
 {
 	return (_exec_stack_ctrl(input, stacks, STR_SWAP_A, swap_a)
-		&& _exec_stack_ctrl(input, stacks, STR_SWAP_B, swap_b)
-		&& _exec_stack_ctrl(input, stacks, STR_SWAP_A_B, swap_a_b)
-		&& _exec_stack_ctrl(input, stacks, STR_PUSH_A, push_a)
-		&& _exec_stack_ctrl(input, stacks, STR_PUSH_B, push_b)
-		&& _exec_stack_ctrl(input, stacks, STR_ROTATE_A, rotate_a)
-		&& _exec_stack_ctrl(input, stacks, STR_ROTATE_B, rotate_b)
-		&& _exec_stack_ctrl(input, stacks, STR_ROTATE_A_B, rotate_a_b)
-		&& _exec_stack_ctrl(input, stacks,
+		|| _exec_stack_ctrl(input, stacks, STR_SWAP_B, swap_b)
+		|| _exec_stack_ctrl(input, stacks, STR_SWAP_A_B, swap_a_b)
+		|| _exec_stack_ctrl(input, stacks, STR_PUSH_A, push_a)
+		|| _exec_stack_ctrl(input, stacks, STR_PUSH_B, push_b)
+		|| _exec_stack_ctrl(input, stacks, STR_ROTATE_A, rotate_a)
+		|| _exec_stack_ctrl(input, stacks, STR_ROTATE_B, rotate_b)
+		|| _exec_stack_ctrl(input, stacks, STR_ROTATE_A_B, rotate_a_b)
+		|| _exec_stack_ctrl(input, stacks,
 			STR_REVERSE_ROTATE_A, reverse_rotate_a)
-		&& _exec_stack_ctrl(input, stacks,
+		|| _exec_stack_ctrl(input, stacks,
 			STR_REVERSE_ROTATE_B, reverse_rotate_b)
-		&& _exec_stack_ctrl(input, stacks,
+		|| _exec_stack_ctrl(input, stacks,
 			STR_REVERSE_ROTATE_A_B, reverse_rotate_a_b)
 	);
 }
