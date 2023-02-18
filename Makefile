@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 01:29:46 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 02:05:55 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS	=\
 	ft_qsort.c \
 	ft_swap.c \
 	main.c \
+	parse_arg.c \
 	stack_dispose.c \
 	stack_init.c \
 	stack_is_sorted.c \

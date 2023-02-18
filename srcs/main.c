@@ -6,11 +6,12 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 00:45:29 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 02:05:21 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/ft_sort.h"
+#include "../headers/parse_arg.h"
 #include "../headers/stack.h"
 
 #include "../libft/ft_put/ft_put.h"
@@ -19,32 +20,8 @@
 // - EXIT_SUCCESS
 #include <stdlib.h>
 
-// - write
-// - STDERR_FILENO
+// - system
 #include <unistd.h>
-
-// - bool
-// - true / false
-#include <stdbool.h>
-
-#define ERROR_MSG ("Error\n")
-
-static bool	parse_arg(int argc, const char *argv[], t_stacks *stacks)
-{
-	if (argc <= 1)
-		return (false);
-	if (argv == NULL)
-	{
-		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
-		return (false);
-	}
-	if (!init_stack_from_str_arr(argv + 1, argc - 1, stacks))
-	{
-		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
-		return (false);
-	}
-	return (true);
-}
 
 int	compar(const void *a, const void *b)
 {
