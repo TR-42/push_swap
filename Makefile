@@ -17,6 +17,7 @@ SRC_DIR	=	./srcs
 
 SRCS	=\
 	atoi_strict.c \
+	ft_qsort.c \
 	ft_swap.c \
 	main.c \
 	stack_dispose.c \
