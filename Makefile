@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 02:05:55 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 02:27:12 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS	=\
 	stack_swap.c \
 
 SRCS_BONUS	=\
+	exec_stack_ctrl_bonus.c \
 	main_bonus.c \
 
 OBJ_DIR	=	./obj
