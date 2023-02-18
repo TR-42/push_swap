@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 02:37:22 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 02:57:18 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS	=\
 	stack_push.c \
 	stack_rev_rotate.c \
 	stack_rotate.c \
+	stack_sort_small.c \
 	stack_swap.c \
 
 SRCS_BONUS	=\
@@ -79,6 +80,10 @@ debug: clean_local
 
 bdebug: clean_local
 	make bonus CFLAGS=-DDEBUG
+
+btest:
+	rm -f $(OBJ_DIR)/main_bonus.o
+	make bonus CFLAGS=-DTEST
 
 bonus:
 	make $(NAME_BONUS)

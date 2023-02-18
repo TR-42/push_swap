@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:50:27 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 02:35:53 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 02:55:42 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ __attribute__((destructor))
 static void	destructor(void) {
 	system("leaks -q checker");
 }
+
+#endif
+
+#if TEST
 
 static void	print_i_count(size_t i_count)
 {
