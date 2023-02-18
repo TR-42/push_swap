@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 00:01:29 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 01:29:46 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS	=\
 	main.c \
 	stack_dispose.c \
 	stack_init.c \
+	stack_is_sorted.c \
 	stack_print.c \
 	stack_push.c \
 	stack_rev_rotate.c \
