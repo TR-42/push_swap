@@ -6,10 +6,11 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 23:37:22 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 00:45:29 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../headers/ft_sort.h"
 #include "../headers/stack.h"
 
 #include "../libft/ft_put/ft_put.h"
@@ -45,12 +46,20 @@ static bool	parse_arg(int argc, const char *argv[], t_stacks *stacks)
 	return (true);
 }
 
+int	compar(const void *a, const void *b)
+{
+	return ((*(V_TYPE *)a) - (*(V_TYPE *)b));
+}
+
 int	main(int argc, const char *argv[])
 {
 	t_stacks	stacks;
 
 	if (!parse_arg(argc, argv, &stacks))
 		return (EXIT_FAILURE);
+	stack_print_all(&stacks);
+	ft_qsort(stacks.a, stacks.a_len, sizeof(V_TYPE), compar);
+	stack_print_all(&stacks);
 	dispose_stack(&stacks);
 	return (EXIT_SUCCESS);
 }
