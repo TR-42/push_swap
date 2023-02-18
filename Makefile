@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 02:27:12 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 02:37:22 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,17 @@ SRCS	=\
 	stack_swap.c \
 
 SRCS_BONUS	=\
+	atoi_strict.c \
 	exec_stack_ctrl_bonus.c \
 	main_bonus.c \
+	parse_arg.c \
+	stack_dispose.c \
+	stack_init.c \
+	stack_is_sorted.c \
+	stack_push.c \
+	stack_rev_rotate.c \
+	stack_rotate.c \
+	stack_swap.c \
 
 OBJ_DIR	=	./obj
 OBJS	=	$(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
