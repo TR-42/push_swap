@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/18 07:00:32 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 00:01:29 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_DIR	=	./srcs
 
 SRCS	=\
 	atoi_strict.c \
+	ft_swap.c \
 	main.c \
 	stack_dispose.c \
 	stack_init.c \
