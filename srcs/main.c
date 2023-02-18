@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 07:01:46 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 23:37:22 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@
 
 #define ERROR_MSG ("Error\n")
 
-static bool	parse_arg(int argc, char *const *argv, t_stacks *stacks)
+static bool	parse_arg(int argc, const char *argv[], t_stacks *stacks)
 {
 	if (argc <= 1)
 		return (false);
-	if (argc != 2 || argv == NULL || argv[1] == NULL || argv[1][0] == '\0')
+	if (argv == NULL)
 	{
 		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 		return (false);
 	}
-	if (!init_stack_from_str(argv[1], stacks))
+	if (!init_stack_from_str_arr(argv + 1, argc - 1, stacks))
 	{
 		ft_putstr_fd(ERROR_MSG, STDERR_FILENO);
 		return (false);
@@ -45,7 +45,7 @@ static bool	parse_arg(int argc, char *const *argv, t_stacks *stacks)
 	return (true);
 }
 
-int	main(int argc, char *const *argv)
+int	main(int argc, const char *argv[])
 {
 	t_stacks	stacks;
 

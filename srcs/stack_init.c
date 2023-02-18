@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 23:32:52 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 07:03:02 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/18 23:36:43 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ static bool	push_back_when_valid_num(t_vect *vect, int value)
 	return (true);
 }
 
-bool	init_stack_from_str(const char *str, t_stacks *stacks)
+static bool	append_nums_to_vect(const char *str, t_vect *vect)
 {
-	t_vect		vect;
-	int			value;
+	int	value;
 
+	if (str == NULL)
+		return (false);
 	if (!(ft_isspace(*str) || ft_isdigit(*str) || *str == '-' || *str == '+'))
 		return (false);
-	vect = vect_init(16, sizeof(int));
-	if (vect.p == NULL)
+	if (vect->p == NULL)
 		return (false);
 	while (*str != '\0')
 	{
@@ -48,11 +48,29 @@ bool	init_stack_from_str(const char *str, t_stacks *stacks)
 			str++;
 		if (!atoi_strict(str, &str, &value)
 			|| (*str != '\0' && !ft_isspace(*str))
-			|| !push_back_when_valid_num(&vect, value))
+			|| !push_back_when_valid_num(vect, value))
+			return (false);
+	}
+	return (true);
+}
+
+bool	init_stack_from_str_arr(const char **str_arr, size_t arr_len,
+	t_stacks *stacks)
+{
+	t_vect		vect;
+
+	if (str_arr == NULL || arr_len <= 0 || stacks == NULL)
+		return (false);
+	vect = vect_init(16, sizeof(int));
+	while (arr_len > 0)
+	{
+		if (!append_nums_to_vect(*str_arr, &vect))
 		{
 			vect_dispose(&vect);
 			return (false);
 		}
+		arr_len--;
+		str_arr++;
 	}
 	*stacks = init_stack((int *)(vect.p), vect.len);
 	return (true);
