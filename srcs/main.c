@@ -6,10 +6,11 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 02:05:21 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 04:25:44 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../headers/compress_coordinate.h"
 #include "../headers/ft_sort.h"
 #include "../headers/parse_arg.h"
 #include "../headers/stack.h"
@@ -23,20 +24,17 @@
 // - system
 #include <unistd.h>
 
-int	compar(const void *a, const void *b)
-{
-	return ((*(V_TYPE *)a) - (*(V_TYPE *)b));
-}
-
 int	main(int argc, const char *argv[])
 {
 	t_stacks	stacks;
 
 	if (!parse_arg(argc, argv, &stacks))
 		return (EXIT_FAILURE);
-	stack_print_all(&stacks);
-	ft_qsort(stacks.a, stacks.a_len, sizeof(V_TYPE), compar);
-	stack_print_all(&stacks);
+	if (!compress_coordinate(stacks.a, stacks.a_len))
+	{
+		print_error();
+		return (EXIT_FAILURE);
+	}
 	dispose_stack(&stacks);
 	return (EXIT_SUCCESS);
 }
