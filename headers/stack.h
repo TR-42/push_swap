@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 01:17:39 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 05:35:51 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,9 @@ void		stack_print_all(const t_stacks *stacks);
 
 void		dispose_stack(t_stacks *stacks);
 
+bool		is_a_sorted(t_stacks *s);
+bool		is_b_sorted(t_stacks *s);
+bool		stack_is_sorted_a_b(t_stacks *s);
 bool		stack_is_sorted(t_stacks *stacks);
 
 void		swap_a(t_stacks *stacks, bool do_print);
