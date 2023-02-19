@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 04:44:27 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 04:53:27 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 08:57:42 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	rev_rotate_if_invalid_order(t_stacks *s)
 	bool	rra;
 	bool	rrb;
 
-	rra = (s->a_len == 3 && (s->a[0] > s->a[2] || s->a[1] > s->a[2]));
-	rrb = (s->b_len == 3 && (s->b[0] < s->b[2] || s->b[1] < s->b[2]));
+	rra = (s->a_len <= 3 && (s->a[0] > s->a[2] || s->a[1] > s->a[2]));
+	rrb = (s->b_len <= 3 && (s->b[0] < s->b[2] || s->b[1] < s->b[2]));
 	if (rra && rrb)
 		reverse_rotate_a_b(s, true);
 	else if (rra)
@@ -46,7 +46,7 @@ static void	rev_rotate_if_invalid_order(t_stacks *s)
 
 bool	_sort_if_3(t_stacks *s)
 {
-	if (s->a_len != 3)
+	if (s->a_len < 3)
 		return (false);
 	swap_if_invalid_order(s);
 	rev_rotate_if_invalid_order(s);
