@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 04:25:44 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/02/19 05:19:59 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ int	main(int argc, const char *argv[])
 		print_error();
 		return (EXIT_FAILURE);
 	}
-	if (!stack_is_sorted(&stacks))
-	{
-		stack_sort_small(&stacks);
-	}
+	(stack_is_sorted(&stacks)
+		|| stack_sort_small(&stacks)
+		|| stack_sort_qsort(&stacks));
 	dispose_stack(&stacks);
 	return (EXIT_SUCCESS);
 }

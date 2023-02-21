@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/02/19 04:50:23 by kfujita          ###   ########.fr        #
+#    Updated: 2023/02/19 05:20:17 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS	=\
 	stack_rev_rotate.c \
 	stack_rotate.c \
 	stack_sort_eq3.c \
+	stack_sort_qsort.c \
 	stack_sort_small.c \
 	stack_swap.c \
 
