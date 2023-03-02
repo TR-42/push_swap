@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 05:19:59 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/02 11:14:21 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,14 @@
 // - EXIT_SUCCESS
 #include <stdlib.h>
 
+// (for debug)
+// - getpid
 // - system
 #include <unistd.h>
+
+// (for debug)
+// - sprintf
+#include <stdio.h>
 
 int	main(int argc, const char *argv[])
 {
@@ -45,9 +51,14 @@ int	main(int argc, const char *argv[])
 
 #if DEBUG
 
+# define DEBUG_LEAKS_CMD_LEN (32)
+
 __attribute__((destructor))
 static void	destructor(void) {
-	system("leaks -q push_swap");
+	char	cmd[DEBUG_LEAKS_CMD_LEN];
+
+	snprintf(cmd, DEBUG_LEAKS_CMD_LEN, "leaks %d", getpid());
+	system(cmd);
 }
 
 #endif
