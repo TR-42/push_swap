@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 01:17:52 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/10 17:19:33 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 22:14:21 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static bool	is_sorted(int *arr, size_t len)
 
 bool	is_a_sorted(t_stacks *s)
 {
-	size_t	i;
-
 	if (s == NULL)
 		return (false);
 	return (is_sorted(s->a, s->a_len));
@@ -42,8 +40,6 @@ bool	is_a_sorted(t_stacks *s)
 
 bool	is_b_sorted(t_stacks *s)
 {
-	size_t	i;
-
 	if (s == NULL)
 		return (false);
 	return (is_sorted(s->b, s->b_len));
