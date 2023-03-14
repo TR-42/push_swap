@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/10 17:26:06 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 21:54:42 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct s_stacks
 	V_TYPE	*b;
 	size_t	b_len;
 }	t_stacks;
+
+typedef void	(*t_stack_op)(t_stacks *, bool);
 
 t_stacks	init_stack(V_TYPE *values, size_t count);
 bool		init_stack_from_str_arr(const char **str_arr, size_t arr_len,
