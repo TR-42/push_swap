@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:06:38 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 06:32:05 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 21:57:31 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ static void	_swap(V_TYPE *current_top, size_t len)
 	tmp = current_top[0];
 	current_top[0] = current_top[1];
 	current_top[1] = tmp;
+}
+
+void	swap_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b)
+{
+	if (stacks == NULL)
+		return ;
+	if (do_a && do_b)
+		swap_a_b(stacks, do_print);
+	else if (do_a)
+		swap_a(stacks, do_print);
+	else if (do_b)
+		swap_b(stacks, do_print);
 }
 
 void	swap_a(t_stacks *stacks, bool do_print)

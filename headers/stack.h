@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:54:20 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/14 21:54:42 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 21:55:11 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ bool		is_b_sorted(t_stacks *s);
 bool		stack_is_sorted_a_b(t_stacks *s);
 bool		stack_is_sorted(t_stacks *stacks);
 
+void		swap_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b);
 void		swap_a(t_stacks *stacks, bool do_print);
 void		swap_b(t_stacks *stacks, bool do_print);
 void		swap_a_b(t_stacks *stacks, bool do_print);
@@ -73,10 +74,13 @@ void		swap_a_b(t_stacks *stacks, bool do_print);
 void		push_a(t_stacks *stacks, bool do_print);
 void		push_b(t_stacks *stacks, bool do_print);
 
+void		rotate_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b);
 void		rotate_a(t_stacks *stacks, bool do_print);
 void		rotate_b(t_stacks *stacks, bool do_print);
 void		rotate_a_b(t_stacks *stacks, bool do_print);
 
+void		reverse_rotate_flag(t_stacks *stacks, bool do_print,
+				bool do_a, bool do_b);
 void		reverse_rotate_a(t_stacks *stacks, bool do_print);
 void		reverse_rotate_b(t_stacks *stacks, bool do_print);
 void		reverse_rotate_a_b(t_stacks *stacks, bool do_print);

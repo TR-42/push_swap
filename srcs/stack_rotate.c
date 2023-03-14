@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 00:08:53 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/18 06:48:56 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 21:57:09 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ static void	_rotate(V_TYPE *top, size_t len)
 	tmp = top[0];
 	ft_memmove(top, top + 1, (len - 1) * sizeof(V_TYPE));
 	top[len - 1] = tmp;
+}
+
+void	rotate_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b)
+{
+	if (stacks == NULL)
+		return ;
+	if (do_a && do_b)
+		rotate_a_b(stacks, do_print);
+	else if (do_a)
+		rotate_a(stacks, do_print);
+	else if (do_b)
+		rotate_b(stacks, do_print);
 }
 
 void	rotate_a(t_stacks *stacks, bool do_print)
