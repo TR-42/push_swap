@@ -6,50 +6,106 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 04:44:27 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 08:57:42 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/14 22:58:25 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/stack_sort.h"
 
-static void	swap_if_invalid_order(t_stacks *stacks)
-{
-	bool	a_valid;
-	bool	b_valid;
+#define OP_SWAP (0)
+#define OP_ROTATE (1)
+#define OP_REV_ROTATE (2)
 
-	a_valid = ((stacks->a_len < 2) || (stacks->a[0] < stacks->a[1]));
-	b_valid = ((stacks->b_len < 2) || (stacks->b[1] < stacks->b[0]));
-	if (a_valid && b_valid)
-		return ;
-	if (!a_valid && !a_valid)
-		swap_a_b(stacks, true);
-	else if (!a_valid)
-		swap_a(stacks, true);
-	else
-		swap_b(stacks, true);
+// swap if ... (1 to 9)
+// len: 2 && { 2, 1 } -> { 1, 2}
+// len: 3 && not { 1, 2, 3 } -> already sorted
+// len: 3 && { 1, 3, 2 } -> { 3, 1, 2 }
+// len: 3 && { 2, 1, 3 } -> { 1, 2, 3 }
+// len: 3 && not { 2, 3, 1 } -> reverse rotate
+// len: 3 && not { 3, 1, 2 } -> rotate
+// len: 3 && { 3, 2, 1 } -> { 2, 3, 1 }
+static bool	_is_swap_needed(int *arr, size_t len, bool is_1to9)
+{
+	int	a0;
+	int	a1;
+	int	a2;
+
+	if (len < 2 || 3 < len)
+		return (false);
+	a0 = arr[0];
+	a1 = arr[1];
+	if (3 <= len)
+		a2 = arr[2];
+	return (
+		(len == 2 && ((is_1to9 && a1 < a0) || (!is_1to9 && a0 < a1)))
+		|| (
+			is_1to9
+			&& !(a0 < a1 && a1 < a2)
+			&& !(a0 < a1 && a1 > a2 && a0 > a2)
+			&& !(a0 > a1 && a1 < a2 && a0 > a2)
+		)
+		|| (
+			!is_1to9
+			&& !(a0 > a1 && a1 > a2)
+			&& !(a0 > a1 && a1 < a2 && a0 < a2)
+			&& !(a0 < a1 && a1 > a2 && a0 < a2)
+		)
+	);
 }
 
-static void	rev_rotate_if_invalid_order(t_stacks *s)
+// rotate if...
+// len: 3 && 1to9: { 3, 1, 2 }
+// len: 3 && 9to1: { 1, 3, 2 }
+static bool	_is_rotate_needed(int *arr, size_t len, bool is_1to9)
 {
-	bool	rra;
-	bool	rrb;
+	int	a0;
+	int	a1;
+	int	a2;
 
-	rra = (s->a_len <= 3 && (s->a[0] > s->a[2] || s->a[1] > s->a[2]));
-	rrb = (s->b_len <= 3 && (s->b[0] < s->b[2] || s->b[1] < s->b[2]));
-	if (rra && rrb)
-		reverse_rotate_a_b(s, true);
-	else if (rra)
-		reverse_rotate_a(s, true);
-	else if (rrb)
-		reverse_rotate_b(s, true);
+	if (len != 3)
+		return (false);
+	a0 = arr[0];
+	a1 = arr[1];
+	a2 = arr[2];
+	return (
+		(is_1to9 && a0 > a1 && a1 < a2 && a0 > a2)
+		|| (!is_1to9 && a0 < a1 && a1 > a2 && a0 < a2)
+	);
+}
+
+// reverse rotate if...
+// len: 3 && 1to9: { 2, 3, 1 }
+// len: 3 && 9to1: { 2, 1, 3 }
+static bool	_is_rev_rotate_needed(int *a, size_t l, bool is_1to9)
+{
+	int	a0;
+	int	a1;
+	int	a2;
+
+	if (l != 3)
+		return (false);
+	a0 = a[0];
+	a1 = a[1];
+	a2 = a[2];
+	return (
+		(is_1to9 && a0 < a1 && a1 > a2 && a0 > a2)
+		|| (!is_1to9 && a0 > a1 && a1 < a2 && a0 < a2)
+	);
 }
 
 bool	_sort_if_3(t_stacks *s)
 {
-	if (s->a_len < 3)
-		return (false);
-	swap_if_invalid_order(s);
-	rev_rotate_if_invalid_order(s);
-	swap_if_invalid_order(s);
+	swap_flag(s, true,
+		_is_swap_needed(s->a, s->a_len, true),
+		_is_swap_needed(s->b, s->b_len, false)
+		);
+	rotate_flag(s, true,
+		_is_rotate_needed(s->a, s->a_len, true),
+		_is_rotate_needed(s->b, s->b_len, false)
+		);
+	reverse_rotate_flag(s, true,
+		_is_rev_rotate_needed(s->a, s->a_len, true),
+		_is_rev_rotate_needed(s->b, s->b_len, false)
+		);
 	return (true);
 }
