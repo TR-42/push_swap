@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 02:20:37 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:32:16 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:57:44 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	_exec_stack_ctrl(const char *input, t_stacks *stacks,
 {
 	if (ft_strncmp(input, expected, 4) != 0)
 		return (false);
-	ctrler(stacks, false);
+	ctrler(stacks, NULL);
 	return (true);
 }
 
