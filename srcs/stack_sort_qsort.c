@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 04:57:31 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:27:25 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 23:15:01 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static void	_stack_split_push_to_a(t_stacks *s, size_t len, int min)
 	size_t	len_half;
 	size_t	i;
 
-	len_half = len / 2;
+	len_half = (len / 2) + (len % 2);
 	while (s->b_len != len_half)
 	{
-		if ((min + (int)len_half) <= s->b[0])
+		if (len <= 5 || (min + (int)len_half) <= s->b[0])
 			push_a(s, true);
 		else
 			rotate_b(s, true);
@@ -34,6 +34,7 @@ static void	_stack_split_push_to_a(t_stacks *s, size_t len, int min)
 		i = 0;
 		while (i++ < (len - len_half))
 			push_b(s, true);
+		_stack_split_push_to_a(s, len - len_half, min + (int)len_half);
 	}
 	else
 	{
@@ -56,7 +57,7 @@ static void	_stack_split(t_stacks *s, size_t len, int min)
 	len_half = len / 2;
 	while (s->b_len != len_half)
 	{
-		if (s->a[0] < (min + (int)len_half))
+		if (len <= 5 || s->a[0] < (min + (int)len_half))
 			push_b(s, true);
 		else
 			rotate_a(s, true);
