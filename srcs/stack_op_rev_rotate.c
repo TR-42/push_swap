@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:48:39 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:01:24 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:04:41 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	reverse_rotate_flag(t_stacks *stacks, bool do_print,
 
 void	reverse_rotate_a(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len))
 		ft_putstr_fd(STR_REVERSE_ROTATE_A, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -53,7 +53,7 @@ void	reverse_rotate_a(t_stacks *stacks, bool do_print)
 
 void	reverse_rotate_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->b_len))
 		ft_putstr_fd(STR_REVERSE_ROTATE_B, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -62,7 +62,7 @@ void	reverse_rotate_b(t_stacks *stacks, bool do_print)
 
 void	reverse_rotate_a_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len || 0 < stacks->b_len))
 		ft_putstr_fd(STR_REVERSE_ROTATE_A_B, STDOUT_FILENO);
 	reverse_rotate_a(stacks, false);
 	reverse_rotate_b(stacks, false);

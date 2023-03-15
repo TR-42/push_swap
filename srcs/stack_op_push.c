@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 23:28:58 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:01:27 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:04:09 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static bool	_pop_push(V_TYPE *src, size_t *srclen, V_TYPE *dst, size_t *dstlen)
 
 void	push_a(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->b_len))
 		ft_putstr_fd(STR_PUSH_A, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -41,7 +41,7 @@ void	push_a(t_stacks *stacks, bool do_print)
 
 void	push_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len))
 		ft_putstr_fd(STR_PUSH_B, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;

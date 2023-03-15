@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 00:08:53 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:01:22 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:05:26 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	rotate_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b)
 
 void	rotate_a(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len))
 		ft_putstr_fd(STR_ROTATE_A, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -52,7 +52,7 @@ void	rotate_a(t_stacks *stacks, bool do_print)
 
 void	rotate_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->b_len))
 		ft_putstr_fd(STR_ROTATE_B, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -61,7 +61,7 @@ void	rotate_b(t_stacks *stacks, bool do_print)
 
 void	rotate_a_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len || 0 < stacks->b_len))
 		ft_putstr_fd(STR_ROTATE_A_B, STDOUT_FILENO);
 	rotate_a(stacks, false);
 	rotate_b(stacks, false);

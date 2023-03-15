@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:06:38 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:01:17 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:05:23 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	swap_flag(t_stacks *stacks, bool do_print, bool do_a, bool do_b)
 
 void	swap_a(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len))
 		ft_putstr_fd(STR_SWAP_A, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -54,7 +54,7 @@ void	swap_a(t_stacks *stacks, bool do_print)
 
 void	swap_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->b_len))
 		ft_putstr_fd(STR_SWAP_B, STDOUT_FILENO);
 	if (stacks == NULL)
 		return ;
@@ -63,7 +63,7 @@ void	swap_b(t_stacks *stacks, bool do_print)
 
 void	swap_a_b(t_stacks *stacks, bool do_print)
 {
-	if (do_print)
+	if (do_print && (0 < stacks->a_len || 0 < stacks->b_len))
 		ft_putstr_fd(STR_SWAP_A_B, STDOUT_FILENO);
 	swap_a(stacks, false);
 	swap_b(stacks, false);
