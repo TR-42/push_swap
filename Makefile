@@ -6,7 +6,7 @@
 #    By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/12 21:27:47 by kfujita           #+#    #+#              #
-#    Updated: 2023/03/15 23:26:42 by kfujita          ###   ########.fr        #
+#    Updated: 2023/03/15 23:41:27 by kfujita          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	=\
 	stack_dispose.c \
 	stack_init.c \
 	stack_is_sorted.c \
+	stack_op_log.c \
 	stack_op_push.c \
 	stack_op_rev_rotate.c \
 	stack_op_rotate.c \
@@ -41,6 +42,7 @@ SRCS_BONUS	=\
 	stack_dispose.c \
 	stack_init.c \
 	stack_is_sorted.c \
+	stack_op_log.c \
 	stack_op_push.c \
 	stack_op_rev_rotate.c \
 	stack_op_rotate.c \
