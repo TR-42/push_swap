@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 23:31:43 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 23:51:50 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:03:32 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,39 @@ void	stack_op_log_print(t_vect *vect)
 		op = *((t_stack_op_num *)vect_at(vect, i++));
 		ft_putstr_fd(_get_op_str(op), STDOUT_FILENO);
 	}
+}
+
+static bool	_can_op_merge(t_stack_op_num op, t_stack_op_num last_op,
+	t_stack_op_num op_a, t_stack_op_num op_b)
+{
+	return ((op == op_a && last_op == op_b) || (op == op_b && last_op == op_a));
+}
+
+void	stack_op_log_append(t_vect *vect, t_stack_op_num op)
+{
+	t_stack_op_num	*l_op;
+
+	if (vect == NULL)
+		return ;
+	if (0 < vect->len)
+	{
+		l_op = (t_stack_op_num *)vect_at(vect, vect->len - 1);
+		if (_can_op_merge(op, *l_op, OP_SA, OP_SB))
+			op = OP_SS;
+		else if (_can_op_merge(op, *l_op, OP_RA, OP_RB))
+			op = OP_RR;
+		else if (_can_op_merge(op, *l_op, OP_RRA, OP_RRB))
+			op = OP_RRR;
+		else if (_can_op_merge(op, *l_op, OP_PA, OP_PB))
+		{
+			*l_op = OP_NONE;
+			return ;
+		}
+		if (*l_op == OP_NONE)
+			*l_op = op;
+		else
+			vect_push_back(vect, &op, NULL);
+	}
+	else
+		vect_push_back(vect, &op, NULL);
 }
