@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 00:54:24 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:30:53 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:41:18 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ bool	stack_sort_small(t_stacks *stacks, t_vect *log_vect)
 		else
 			rotate_a(stacks, log_vect);
 	}
-	_sort_if_3(stacks, stacks->a_len, stacks->b_len, false);
+	_sort_if_3(stacks, stacks->a_len, false, log_vect);
 	while (stacks->b_len != 0)
 		push_a(stacks, log_vect);
 	return (true);
