@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 04:44:27 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 20:19:46 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 22:24:42 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,19 @@ static bool	_is_rev_rotate_needed(int *a, size_t l, bool is_1to9)
 	);
 }
 
-bool	_sort_if_3(t_stacks *s, size_t a_len, size_t b_len)
+bool	_sort_if_3(t_stacks *s, size_t a_len, size_t b_len, bool is_b_1to9)
 {
 	swap_flag(s, true,
 		_is_swap_needed(s->a, a_len, true),
-		_is_swap_needed(s->b, b_len, false)
+		_is_swap_needed(s->b, b_len, is_b_1to9)
 		);
 	rotate_flag(s, true,
 		_is_rotate_needed(s->a, a_len, true),
-		_is_rotate_needed(s->b, b_len, false)
+		_is_rotate_needed(s->b, b_len, is_b_1to9)
 		);
 	reverse_rotate_flag(s, true,
 		_is_rev_rotate_needed(s->a, a_len, true),
-		_is_rev_rotate_needed(s->b, b_len, false)
+		_is_rev_rotate_needed(s->b, b_len, is_b_1to9)
 		);
 	return (true);
 }
