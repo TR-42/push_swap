@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 04:57:31 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 23:15:01 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/15 23:21:25 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 // - INT_MIN
 #include <limits.h>
+
+static void	_sort_and_pa(t_stacks *s, size_t len, int min)
+{
+	_sort_if_3(s, (len - s->b_len), s->b_len, true);
+	while (0 < len)
+	{
+		if (s->a[0] != min)
+			push_a(s, true);
+		rotate_a(s, true);
+		min++;
+		len--;
+	}
+}
 
 static void	_stack_split_push_to_a(t_stacks *s, size_t len, int min)
 {
@@ -37,17 +50,7 @@ static void	_stack_split_push_to_a(t_stacks *s, size_t len, int min)
 		_stack_split_push_to_a(s, len - len_half, min + (int)len_half);
 	}
 	else
-	{
-		_sort_if_3(s, (len - s->b_len), s->b_len, true);
-		while (0 < len)
-		{
-			if (s->a[0] != min)
-				push_a(s, true);
-			rotate_a(s, true);
-			min++;
-			len--;
-		}
-	}
+		_sort_and_pa(s, len, min);
 }
 
 static void	_stack_split(t_stacks *s, size_t len, int min)
@@ -70,17 +73,7 @@ static void	_stack_split(t_stacks *s, size_t len, int min)
 		_stack_split_push_to_a(s, len - len_half, min + (int)len_half);
 	}
 	else
-	{
-		_sort_if_3(s, (len - s->b_len), s->b_len, true);
-		while (0 < len)
-		{
-			if (s->a[0] != min)
-				push_a(s, true);
-			rotate_a(s, true);
-			len--;
-			min++;
-		}
-	}
+		_sort_and_pa(s, len, min);
 }
 
 bool	stack_sort_qsort(t_stacks *s)
