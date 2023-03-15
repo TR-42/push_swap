@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:40:11 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:31:17 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:47:22 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, const char *argv[])
 		print_error();
 		return (EXIT_FAILURE);
 	}
-	op_log = vect_init(100, sizeof(t_stack_op_num));
+	op_log = vect_init(128, sizeof(t_stack_op_num_type));
 	(stack_is_sorted(&stacks)
 		|| stack_sort_small(&stacks, &op_log)
 		|| stack_sort_qsort(&stacks, &op_log));

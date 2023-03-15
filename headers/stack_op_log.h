@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 23:31:53 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 23:45:52 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:45:45 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ typedef enum e_stack_op_num
 	OP_RRB,
 	OP_RRR,
 }	t_stack_op_num;
+
+typedef char	t_stack_op_num_type;
 
 void	stack_op_log_append(t_vect *vect, t_stack_op_num op);
 
