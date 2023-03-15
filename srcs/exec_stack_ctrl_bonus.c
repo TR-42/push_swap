@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 02:20:37 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 02:51:02 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:32:16 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 #include "../libft/ft_string/ft_string.h"
 
-typedef void	(*t_ctrler)(t_stacks *, bool);
-
 static bool	_exec_stack_ctrl(const char *input, t_stacks *stacks,
-	const char *expected, t_ctrler ctrler)
+	const char *expected, t_stack_op ctrler)
 {
 	if (ft_strncmp(input, expected, 4) != 0)
 		return (false);

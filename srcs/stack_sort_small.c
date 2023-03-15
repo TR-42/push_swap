@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 00:54:24 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 23:26:28 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:30:53 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,24 +95,24 @@ static bool	_is_rev_rotate_needed(int *a, size_t l, bool is_1to9)
 	);
 }
 
-bool	_sort_if_3(t_stacks *s, size_t a_len, size_t b_len, bool is_b_1to9)
+bool	_sort_if_3(t_stacks *s, size_t a_len, bool is_b_1to9, t_vect *log_vect)
 {
-	swap_flag(s, true,
+	swap_flag(s, log_vect,
 		_is_swap_needed(s->a, a_len, true),
-		_is_swap_needed(s->b, b_len, is_b_1to9)
+		_is_swap_needed(s->b, s->b_len, is_b_1to9)
 		);
-	rotate_flag(s, true,
+	rotate_flag(s, log_vect,
 		_is_rotate_needed(s->a, a_len, true),
-		_is_rotate_needed(s->b, b_len, is_b_1to9)
+		_is_rotate_needed(s->b, s->b_len, is_b_1to9)
 		);
-	reverse_rotate_flag(s, true,
+	reverse_rotate_flag(s, log_vect,
 		_is_rev_rotate_needed(s->a, a_len, true),
-		_is_rev_rotate_needed(s->b, b_len, is_b_1to9)
+		_is_rev_rotate_needed(s->b, s->b_len, is_b_1to9)
 		);
 	return (true);
 }
 
-bool	stack_sort_small(t_stacks *stacks)
+bool	stack_sort_small(t_stacks *stacks, t_vect *log_vect)
 {
 	size_t	b_len;
 
@@ -124,12 +124,12 @@ bool	stack_sort_small(t_stacks *stacks)
 	while (stacks->b_len != b_len)
 	{
 		if (stacks->a[0] < (INT_MIN + (int)b_len))
-			push_b(stacks, true);
+			push_b(stacks, log_vect);
 		else
-			rotate_a(stacks, true);
+			rotate_a(stacks, log_vect);
 	}
 	_sort_if_3(stacks, stacks->a_len, stacks->b_len, false);
 	while (stacks->b_len != 0)
-		push_a(stacks, true);
+		push_a(stacks, log_vect);
 	return (true);
 }

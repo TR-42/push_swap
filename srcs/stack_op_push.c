@@ -6,11 +6,12 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 23:28:58 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/15 22:04:09 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 00:22:01 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/stack.h"
+#include "../headers/stack_op_log.h"
 
 #include "../libft/ft_mem/ft_mem.h"
 #include "../libft/ft_put/ft_put.h"
@@ -30,19 +31,19 @@ static bool	_pop_push(V_TYPE *src, size_t *srclen, V_TYPE *dst, size_t *dstlen)
 	return (true);
 }
 
-void	push_a(t_stacks *stacks, bool do_print)
+void	push_a(t_stacks *stacks, t_vect *log_vect)
 {
-	if (do_print && (0 < stacks->b_len))
-		ft_putstr_fd(STR_PUSH_A, STDOUT_FILENO);
+	if (0 < stacks->b_len)
+		stack_op_log_append(log_vect, OP_PA);
 	if (stacks == NULL)
 		return ;
 	_pop_push(stacks->b, &(stacks->b_len), stacks->a, &(stacks->a_len));
 }
 
-void	push_b(t_stacks *stacks, bool do_print)
+void	push_b(t_stacks *stacks, t_vect *log_vect)
 {
-	if (do_print && (0 < stacks->a_len))
-		ft_putstr_fd(STR_PUSH_B, STDOUT_FILENO);
+	if (0 < stacks->a_len)
+		stack_op_log_append(log_vect, OP_PB);
 	if (stacks == NULL)
 		return ;
 	_pop_push(stacks->a, &(stacks->a_len), stacks->b, &(stacks->b_len));
