@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 00:08:53 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:23:47 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 10:05:51 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	rotate_flag(t_stacks *stacks, t_vect *log_vect, bool do_a, bool do_b)
 
 void	rotate_a(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->a_len)
+	if (1 < stacks->a_len)
 		stack_op_log_append(log_vect, OP_RA);
 	if (stacks == NULL)
 		return ;
@@ -53,7 +53,7 @@ void	rotate_a(t_stacks *stacks, t_vect *log_vect)
 
 void	rotate_b(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->b_len)
+	if (1 < stacks->b_len)
 		stack_op_log_append(log_vect, OP_RB);
 	if (stacks == NULL)
 		return ;
@@ -62,7 +62,7 @@ void	rotate_b(t_stacks *stacks, t_vect *log_vect)
 
 void	rotate_a_b(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->a_len || 0 < stacks->b_len)
+	if (1 < stacks->a_len || 1 < stacks->b_len)
 		stack_op_log_append(log_vect, OP_RR);
 	rotate_a(stacks, false);
 	rotate_b(stacks, false);

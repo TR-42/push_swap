@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 06:48:39 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:23:43 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 10:05:13 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	reverse_rotate_flag(t_stacks *stacks, t_vect *log_vect,
 
 void	reverse_rotate_a(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->a_len)
+	if (1 < stacks->a_len)
 		stack_op_log_append(log_vect, OP_RRA);
 	if (stacks == NULL)
 		return ;
@@ -54,7 +54,7 @@ void	reverse_rotate_a(t_stacks *stacks, t_vect *log_vect)
 
 void	reverse_rotate_b(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->b_len)
+	if (1 < stacks->b_len)
 		stack_op_log_append(log_vect, OP_RRB);
 	if (stacks == NULL)
 		return ;
@@ -63,7 +63,7 @@ void	reverse_rotate_b(t_stacks *stacks, t_vect *log_vect)
 
 void	reverse_rotate_a_b(t_stacks *stacks, t_vect *log_vect)
 {
-	if (0 < stacks->a_len || 0 < stacks->b_len)
+	if (1 < stacks->a_len || 1 < stacks->b_len)
 		stack_op_log_append(log_vect, OP_RRR);
 	reverse_rotate_a(stacks, false);
 	reverse_rotate_b(stacks, false);
