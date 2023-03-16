@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 03:57:27 by kfujita           #+#    #+#             */
-/*   Updated: 2023/02/19 04:25:32 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 09:39:47 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@
 
 static int	compar(const void *a, const void *b)
 {
-	return ((*(int *)a) - (*(int *)b));
+	int	ia;
+	int	ib;
+
+	ia = *(int *)a;
+	ib = *(int *)b;
+	if (ia == ib)
+		return (0);
+	else if (ia < ib)
+		return (-1);
+	else
+		return (1);
 }
 
 static size_t	_get_index(int key, const int *base, size_t len)
