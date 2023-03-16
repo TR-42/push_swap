@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 23:31:43 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 09:45:43 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 11:01:04 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ void	stack_op_log_append(t_vect *vect, t_stack_op_num op)
 {
 	t_stack_op_num_type	*l_op;
 
-	if (vect == NULL)
-		return ;
-	if (0 < vect->len)
+	if (vect != NULL && 0 < vect->len)
 	{
 		l_op = (t_stack_op_num_type *)vect_at(vect, vect->len - 1);
 		if (_can_op_merge(op, *l_op, OP_SA, OP_SB))
@@ -94,6 +92,6 @@ void	stack_op_log_append(t_vect *vect, t_stack_op_num op)
 		else
 			vect_push_back(vect, &op, NULL);
 	}
-	else
+	else if (vect != NULL)
 		vect_push_back(vect, &op, NULL);
 }
