@@ -6,7 +6,7 @@
 /*   By: kfujita <kfujita@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/15 23:31:43 by kfujita           #+#    #+#             */
-/*   Updated: 2023/03/16 00:46:47 by kfujita          ###   ########.fr       */
+/*   Updated: 2023/03/16 09:45:43 by kfujita          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,9 @@ void	stack_op_log_append(t_vect *vect, t_stack_op_num op)
 			op = OP_RR;
 		else if (_can_op_merge(op, *l_op, OP_RRA, OP_RRB))
 			op = OP_RRR;
-		else if (_can_op_merge(op, *l_op, OP_PA, OP_PB))
+		else if (_can_op_merge(op, *l_op, OP_PA, OP_PB)
+			|| _can_op_merge(op, *l_op, OP_RA, OP_RRA)
+			|| _can_op_merge(op, *l_op, OP_RB, OP_RRB))
 		{
 			*l_op = OP_NONE;
 			return ;
